@@ -560,6 +560,214 @@
         font-weight: bold;
       }
 
+      /* Projects Section */
+      .section-description {
+        text-align: center;
+        color: var(--gray-light);
+        font-size: 1.125rem;
+        max-width: 700px;
+        margin: -60px auto 60px;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 32px;
+        margin-top: 40px;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card.featured {
+        border: 1px solid rgba(99, 102, 241, 0.2);
+      }
+
+      .project-card:hover {
+        transform: translateY(-12px);
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition-slow);
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.3),
+          rgba(15, 23, 42, 0.9)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 20px;
+      }
+
+      .project-link-btn {
+        padding: 12px 24px;
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: var(--radius);
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .project-link-btn:hover {
+        background: var(--gradient-secondary);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+
+      .project-content {
+        padding: 28px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-badge {
+        display: inline-block;
+        padding: 6px 14px;
+        background: rgba(99, 102, 241, 0.15);
+        color: var(--primary-light);
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+        width: fit-content;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+      }
+
+      .project-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        color: var(--light);
+      }
+
+      .project-year {
+        color: var(--primary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .project-description {
+        color: var(--gray-light);
+        margin-bottom: 20px;
+        line-height: 1.7;
+        flex: 1;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tech-badge {
+        padding: 6px 14px;
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--secondary);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        transition: var(--transition);
+      }
+
+      .tech-badge:hover {
+        background: rgba(16, 185, 129, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .cta-card {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+        border: 2px dashed rgba(99, 102, 241, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+      }
+
+      .cta-card:hover {
+        border-color: var(--primary);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.2));
+      }
+
+      .cta-content {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .cta-content i {
+        font-size: 4rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .cta-content h3 {
+        font-size: 1.75rem;
+        margin-bottom: 12px;
+        color: var(--light);
+      }
+
+      .cta-content p {
+        color: var(--gray-light);
+        margin-bottom: 28px;
+        font-size: 1rem;
+      }
+
       /* Skills Section */
       .skills-grid {
         display: grid;
@@ -929,7 +1137,8 @@
         }
 
         .education-cards,
-        .skills-grid {
+        .skills-grid,
+        .projects-grid {
           grid-template-columns: 1fr;
         }
 
@@ -972,6 +1181,7 @@
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -994,11 +1204,11 @@
             frameworks, and cloud technologies.
           </p>
           <div class="hero-btns">
-            <a href="#contact" class="btn">
-              <i class="fas fa-paper-plane"></i> Get In Touch
+            <a href="#projects" class="btn">
+              <i class="fas fa-folder-open"></i> View Projects
             </a>
-            <a href="#experience" class="btn btn-outline">
-              <i class="fas fa-briefcase"></i> View Experience
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Get In Touch
             </a>
           </div>
           <div class="tech-stack">
@@ -1114,6 +1324,177 @@
       </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-description">
+          A showcase of my recent work demonstrating full-stack development expertise, from enterprise applications to interactive web experiences.
+        </p>
+        <div class="projects-grid">
+          <!-- Metallix Platform -->
+          <div class="project-card featured animate">
+            <div class="project-image">
+              <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Metallix Platform">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/malikbilal121212/METALLIX" target="_blank" class="project-link-btn" title="Frontend Repo">
+                    <i class="fab fa-github"></i> Frontend
+                  </a>
+                  <a href="https://github.com/malikbilal121212/METALLIX-backend" target="_blank" class="project-link-btn" title="Backend Repo">
+                    <i class="fab fa-github"></i> Backend
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-badge">Featured</div>
+              <h3>Metallix Platform</h3>
+              <p class="project-year">2024 - 2025</p>
+              <p class="project-description">
+                Full-stack enterprise web application with separate frontend and backend architectures. Implemented RESTful APIs, authentication, role-based access control, and modular services with optimized state management.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">NestJS</span>
+                <span class="tech-badge">MongoDB</span>
+                <span class="tech-badge">TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- School Management System -->
+          <div class="project-card featured animate">
+            <div class="project-image">
+              <img src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800" alt="School Management System">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/malikbilal121212/school-management-system" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-badge">Featured</div>
+              <h3>School Management System</h3>
+              <p class="project-year">2023 - 2024</p>
+              <p class="project-description">
+                Complete school management system with student records, attendance tracking, and administrative dashboards. Includes secure CRUD operations with role-based access control and optimized database interactions.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Next.js</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express.js</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- E-Commerce Platform -->
+          <div class="project-card animate">
+            <div class="project-image">
+              <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800" alt="E-Commerce Platform">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/malikbilal121212/E-Commerce-Website" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> E-Commerce
+                  </a>
+                  <a href="https://github.com/malikbilal121212/Shopping" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> Shopping
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>E-Commerce & Shopping Platforms</h3>
+              <p class="project-year">2022 - 2024</p>
+              <p class="project-description">
+                Shopping and e-commerce platforms with product listings, cart functionality, and order workflows. Integrated Firebase authentication, Firestore database, and media uploads with responsive design.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">Firebase</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Firestore</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor Appointment -->
+          <div class="project-card animate">
+            <div class="project-image">
+              <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Doctor Appointment">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/malikbilal121212/doctor-appoinment" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> Web App
+                  </a>
+                  <a href="https://github.com/malikbilal121212/doctor-appoinment-mobile" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> Mobile
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Doctor Appointment & Medical Apps</h3>
+              <p class="project-year">2022 - 2023</p>
+              <p class="project-description">
+                Medical service applications for web and mobile platforms with authentication, appointment scheduling, and real-time data updates. Cross-platform mobile UI built using Ionic.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">Ionic</span>
+                <span class="tech-badge">Firebase</span>
+                <span class="tech-badge">TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Games & Interactive -->
+          <div class="project-card animate">
+            <div class="project-image">
+              <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Interactive Games">
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/malikbilal121212/2048-Game" target="_blank" class="project-link-btn">
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Games & Interactive Applications</h3>
+              <p class="project-year">2022 - 2023</p>
+              <p class="project-description">
+                Browser-based games including 2048 and Pong to strengthen logic, animations, and UI handling. Focused on clean JavaScript logic, performance, and responsive layouts.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">Canvas API</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- View More Projects CTA -->
+          <div class="project-card cta-card animate">
+            <div class="cta-content">
+              <i class="fab fa-github"></i>
+              <h3>More Projects</h3>
+              <p>Check out more of my work on GitHub</p>
+              <a href="https://github.com/malikbilal121212" target="_blank" class="btn">
+                <i class="fab fa-github"></i> Visit GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills">
       <div class="container">
@@ -1211,10 +1592,10 @@
               </div>
             </div>
             <div class="social-links">
-              <a href="#" class="social-link"
+              <a href="https://www.linkedin.com/in/bilal-hassan" target="_blank" class="social-link"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
-              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/malikbilal121212" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
               <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
               <a href="#" class="social-link"
                 ><i class="fab fa-stack-overflow"></i
@@ -1283,11 +1664,12 @@
             <a href="#home">Home</a>
             <a href="#education">Education</a>
             <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
           </div>
           <div class="copyright">
-            &copy; 2023 Bilal Hassan. All Rights Reserved.
+            &copy; 2025 Bilal Hassan. All Rights Reserved.
           </div>
         </div>
       </div>
