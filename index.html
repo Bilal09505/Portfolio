@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -44,14 +44,14 @@
         <div class="hero-content">
           <h1>Bilal Hassan</h1>
           <div class="hero-subtitle">
-            <span class="gradient-text">Full-Stack Developer</span> | Angular &
-            React Specialist
+            <span class="gradient-text">Full-Stack Developer</span> | | Angular,
+            NestJS & .NET Core
           </div>
           <p class="hero-description">
-            I build scalable web applications with modern technologies. With
-            expertise in both front-end and back-end development, I create
-            robust solutions using microservices architecture, modern
-            frameworks, and cloud technologies.
+            I design and build scalable full-stack systems using Angular,
+            NestJS, and .NET Core. My focus is on clean architecture, API
+            design, and high-performance backend systems, combined with modern
+            frontend experiences.
           </p>
           <div class="hero-btns">
             <a href="#projects" class="btn">
@@ -68,6 +68,7 @@
             </div>
             <div class="tech-item"><i class="fab fa-node-js"></i> Node.js</div>
             <div class="tech-item"><i class="fab fa-node-js"></i> Nest.js</div>
+            <div class="tech-item"><i class="fas fa-server"></i> .NET Core</div>
             <div class="tech-item"><i class="fas fa-code"></i> TypeScript</div>
             <div class="tech-item">
               <i class="fas fa-server"></i> Microservices
@@ -76,6 +77,53 @@
               <i class="fas fa-database"></i> MongoDB/PostgreSQL
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-study">
+      <div class="container">
+        <h2 class="section-title">Featured Case Study</h2>
+
+        <div class="project-card featured">
+          <h3>Schema-Driven API Documentation Portal</h3>
+
+          <p>
+            Built a dynamic API documentation and execution system similar to
+            Swagger, designed to render UI and execute requests entirely from
+            schema configuration.
+          </p>
+
+          <h4>🔍 Problem</h4>
+          <p>
+            Traditional API documentation is static, hard to maintain, and
+            disconnected from real execution. Teams struggle with outdated docs
+            and inconsistent API usage.
+          </p>
+
+          <h4>⚙️ Solution</h4>
+          <p>
+            Designed a schema-driven architecture where APIs are defined in
+            structured JSON, enabling automatic UI generation, request building,
+            and real-time execution.
+          </p>
+
+          <h4>🏗️ Architecture</h4>
+          <ul>
+            <li>
+              Recursive schema parser for nested request/response structures
+            </li>
+            <li>Dynamic payload builder for API execution</li>
+            <li>Decoupled execution service layer</li>
+            <li>Reusable component-based UI system</li>
+          </ul>
+
+          <h4>🚀 Key Impact</h4>
+          <ul>
+            <li>Reduced manual documentation effort</li>
+            <li>Improved developer experience (DX)</li>
+            <li>Enabled real-time API testing from UI</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -179,19 +227,70 @@
       <div class="container">
         <h2 class="section-title">Featured Projects</h2>
         <p class="section-description">
-          A showcase of my recent work demonstrating full-stack development expertise, from enterprise applications to interactive web experiences.
+          A showcase of my recent work demonstrating full-stack development
+          expertise, from enterprise applications to interactive web
+          experiences.
         </p>
         <div class="projects-grid">
+          <div class="project-card featured animate">
+            <div class="project-image">
+              <img
+                src="./images/api-doc.png"
+                alt="API Documentation Portal"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/Bilal09505/api-documentation-portal"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
+                    <i class="fab fa-github"></i> View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-badge">Featured</div>
+              <h3>Schema-Driven API Documentation Portal</h3>
+              <p class="project-year">2025 - Present</p>
+              <p class="project-description">
+                Built a dynamic API documentation and execution platform similar
+                to Swagger, using a schema-driven architecture. Implemented
+                recursive UI rendering, dynamic request building, and real-time
+                API execution.
+              </p>
+              <div class="project-tech">
+                <span class="tech-badge">Angular</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Dynamic Forms</span>
+                <span class="tech-badge">API Execution Engine</span>
+              </div>
+            </div>
+          </div>
           <!-- Metallix Platform -->
           <div class="project-card featured animate">
             <div class="project-image">
-              <img src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Metallix Platform">
+              <img
+                src="https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Metallix Platform"
+              />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="https://github.com/Bilal09505/Metallix-Frontend" target="_blank" class="project-link-btn" title="Frontend Repo">
+                  <a
+                    href="https://github.com/Bilal09505/Metallix-Frontend"
+                    target="_blank"
+                    class="project-link-btn"
+                    title="Frontend Repo"
+                  >
                     <i class="fab fa-github"></i> Frontend
                   </a>
-                  <a href="https://github.com/Bilal09505/Metallix-backend" target="_blank" class="project-link-btn" title="Backend Repo">
+                  <a
+                    href="https://github.com/Bilal09505/Metallix-backend"
+                    target="_blank"
+                    class="project-link-btn"
+                    title="Backend Repo"
+                  >
                     <i class="fab fa-github"></i> Backend
                   </a>
                 </div>
@@ -202,7 +301,10 @@
               <h3>Metallix Platform</h3>
               <p class="project-year">2024 - 2025</p>
               <p class="project-description">
-                Full-stack enterprise web application with separate frontend and backend architectures. Implemented RESTful APIs, authentication, role-based access control, and modular services with optimized state management.
+                Enterprise-grade full-stack platform with modular frontend and
+                backend architecture. Designed REST APIs using NestJS and .NET
+                Core, implemented authentication, role-based access control, and
+                scalable service-based architecture.
               </p>
               <div class="project-tech">
                 <span class="tech-badge">Angular</span>
@@ -217,10 +319,17 @@
           <!-- School Management System -->
           <div class="project-card featured animate">
             <div class="project-image">
-              <img src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800" alt="School Management System">
+              <img
+                src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="School Management System"
+              />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="https://github.com/Bilal09505/school" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/school"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> View Code
                   </a>
                 </div>
@@ -231,7 +340,12 @@
               <h3>School Management System</h3>
               <p class="project-year">2023 - 2024</p>
               <p class="project-description">
-                Complete school management system with student records, attendance tracking, and administrative dashboards. Includes secure CRUD operations with role-based access control and optimized database interactions.
+                Complete school management system with student records,
+                attendance tracking, and administrative dashboards. Includes
+                secure CRUD operations with role-based access control and
+                optimized database interactions. Built using clean architecture
+                principles with separation of concerns (controller, service,
+                data layers).
               </p>
               <div class="project-tech">
                 <span class="tech-badge">Next.js</span>
@@ -246,13 +360,24 @@
           <!-- E-Commerce Platform -->
           <div class="project-card animate">
             <div class="project-image">
-              <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800" alt="E-Commerce Platform">
+              <img
+                src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="E-Commerce Platform"
+              />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="https://github.com/Bilal09505/E-Commerce" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/E-Commerce"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> E-Commerce
                   </a>
-                  <a href="https://github.com/Bilal09505/Shopping" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/Shopping"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> Shopping
                   </a>
                 </div>
@@ -262,7 +387,10 @@
               <h3>E-Commerce & Shopping Platforms</h3>
               <p class="project-year">2022 - 2024</p>
               <p class="project-description">
-                Shopping and e-commerce platforms with product listings, cart functionality, and order workflows. Integrated Firebase authentication, Firestore database, and media uploads with responsive design.
+                Shopping and e-commerce platforms with product listings, cart
+                functionality, and order workflows. Integrated Firebase
+                authentication, Firestore database, and media uploads with
+                responsive design.
               </p>
               <div class="project-tech">
                 <span class="tech-badge">Angular</span>
@@ -276,13 +404,24 @@
           <!-- Doctor Appointment -->
           <div class="project-card animate">
             <div class="project-image">
-              <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Doctor Appointment">
+              <img
+                src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Doctor Appointment"
+              />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="https://github.com/Bilal09505/doctor" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/doctor"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> Web App
                   </a>
-                  <a href="https://github.com/Bilal09505/doctor" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/doctor"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> Mobile
                   </a>
                 </div>
@@ -292,7 +431,9 @@
               <h3>Doctor Appointment & Medical Apps</h3>
               <p class="project-year">2022 - 2023</p>
               <p class="project-description">
-                Medical service applications for web and mobile platforms with authentication, appointment scheduling, and real-time data updates. Cross-platform mobile UI built using Ionic.
+                Medical service applications for web and mobile platforms with
+                authentication, appointment scheduling, and real-time data
+                updates. Cross-platform mobile UI built using Ionic.
               </p>
               <div class="project-tech">
                 <span class="tech-badge">Angular</span>
@@ -306,10 +447,17 @@
           <!-- Games & Interactive -->
           <div class="project-card animate">
             <div class="project-image">
-              <img src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Interactive Games">
+              <img
+                src="https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Interactive Games"
+              />
               <div class="project-overlay">
                 <div class="project-links">
-                  <a href="https://github.com/Bilal09505/game2048" target="_blank" class="project-link-btn">
+                  <a
+                    href="https://github.com/Bilal09505/game2048"
+                    target="_blank"
+                    class="project-link-btn"
+                  >
                     <i class="fab fa-github"></i> View Code
                   </a>
                 </div>
@@ -319,7 +467,9 @@
               <h3>Games & Interactive Applications</h3>
               <p class="project-year">2022 - 2023</p>
               <p class="project-description">
-                Browser-based games including 2048 and Pong to strengthen logic, animations, and UI handling. Focused on clean JavaScript logic, performance, and responsive layouts.
+                Browser-based games including 2048 and Pong to strengthen logic,
+                animations, and UI handling. Focused on clean JavaScript logic,
+                performance, and responsive layouts.
               </p>
               <div class="project-tech">
                 <span class="tech-badge">JavaScript</span>
@@ -329,17 +479,43 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- View More Projects CTA -->
-          <div class="project-card cta-card animate">
-            <div class="cta-content">
-              <i class="fab fa-github"></i>
-              <h3>More Projects</h3>
-              <p>Check out more of my work on GitHub</p>
-              <a href="https://github.com/Bilal09505" target="_blank" class="btn">
-                <i class="fab fa-github"></i> Visit GitHub
-              </a>
-            </div>
+    <section id="architecture">
+      <div class="container">
+        <h2 class="section-title">System Architecture</h2>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Frontend Architecture</h3>
+            <ul>
+              <li>Component-driven architecture (Angular)</li>
+              <li>State management with RxJS</li>
+              <li>Reusable UI components</li>
+              <li>Dynamic rendering via schema</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>Backend Architecture</h3>
+            <ul>
+              <li>REST APIs using NestJS & .NET Core</li>
+              <li>Controller → Service → Repository pattern</li>
+              <li>JWT authentication & role-based access</li>
+              <li>Microservices-ready design</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3>System Design Principles</h3>
+            <ul>
+              <li>Separation of concerns</li>
+              <li>Scalable modular architecture</li>
+              <li>API-first design</li>
+              <li>Clean code & maintainability</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -369,12 +545,13 @@
             <h3><i class="fas fa-server"></i> Backend</h3>
             <div class="skill-tags">
               <div class="skill-tag">Node.js</div>
-              <div class="skill-tag">Express.js</div>
+              <div class="skill-tag">NestJS</div>
+              <div class="skill-tag">.NET Core</div>
+              <div class="skill-tag">ASP.NET Web API</div>
               <div class="skill-tag">Microservices</div>
               <div class="skill-tag">REST APIs</div>
               <div class="skill-tag">GraphQL</div>
               <div class="skill-tag">Socket.io</div>
-              <div class="skill-tag">NestJS</div>
               <div class="skill-tag">JWT Authentication</div>
             </div>
           </div>
@@ -442,10 +619,18 @@
               </div>
             </div>
             <div class="social-links">
-              <a href="https://www.linkedin.com/in/bilal-hassan-a31026206/" target="_blank" class="social-link"
+              <a
+                href="https://www.linkedin.com/in/bilal-hassan-a31026206/"
+                target="_blank"
+                class="social-link"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
-              <a href="https://github.com/Bilal09505" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+              <a
+                href="https://github.com/Bilal09505"
+                target="_blank"
+                class="social-link"
+                ><i class="fab fa-github"></i
+              ></a>
               <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
               <a href="#" class="social-link"
                 ><i class="fab fa-stack-overflow"></i

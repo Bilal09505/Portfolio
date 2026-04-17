@@ -1147,3 +1147,107 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   CASE STUDY SECTION
+========================= */
+#case-study .project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+#case-study h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+#case-study h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+#case-study p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+#case-study ul {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+#case-study ul li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+#case-study ul li::marker {
+  color: var(--primary);
+}
+
+/* =========================
+   ARCHITECTURE SECTION
+========================= */
+#architecture .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+#architecture .skill-category {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+#architecture .skill-category:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+
+#architecture h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+#architecture ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#architecture ul li {
+  padding: 6px 0;
+  color: var(--muted);
+  position: relative;
+  padding-left: 18px;
+}
+
+#architecture ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* =========================
+   IMPROVED VISUAL HIERARCHY
+========================= */
+#case-study,
+#architecture {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#case-study .container,
+#architecture .container {
+  max-width: 1100px;
+}
