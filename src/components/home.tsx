@@ -27,6 +27,8 @@ import { Brand, Tech } from "./brands";
 import { Clock, Orb } from "./shell";
 import { ProjectVisual } from "./project-visual";
 import { Contact } from "./contact";
+import { AvailabilityMap } from "./availability-map";
+import { StackSphere } from "./stack-sphere";
 const Globe = dynamic(() => import("./globe"), {
   ssr: false,
   loading: () => <div className="globe-placeholder" />,
@@ -561,40 +563,7 @@ function Stack() {
             </div>
           ))}
         </div>
-        <div className="stack-orbit">
-          <div className="orbit-ring one" />
-          <div className="orbit-ring two" />
-          <span className="stack-orbit-center">
-            <Orb />
-          </span>
-          {stack
-            .flatMap((s, category) =>
-              s.tools.map((tool, i) => ({ tool, category, i })),
-            )
-            .filter((v, i, a) => a.findIndex((x) => x.tool === v.tool) === i)
-            .map(({ tool, category }, i) => (
-              <motion.div
-                key={tool}
-                drag
-                dragSnapToOrigin
-                dragMomentum={false}
-                className={`orbit-logo ${open === category ? "highlight" : ""}`}
-                style={{
-                  left: `${50 + 36 * Math.cos(i * 2.4)}%`,
-                  top: `${50 + 36 * Math.sin(i * 2.4)}%`,
-                }}
-                animate={reduce ? {} : { y: [0, -6, 0] }}
-                transition={{ duration: 4 + (i % 3), repeat: Infinity }}
-                title={tool}
-                aria-label={tool}
-              >
-                <Brand name={tool} />
-              </motion.div>
-            ))}
-          <span className="mono orbit-instruction">
-            A connected toolkit · drag to explore
-          </span>
-        </div>
+        <StackSphere active={open} />
       </div>
     </section>
   );
@@ -658,6 +627,7 @@ export default function Home() {
       <About />
       <Stack />
       <Experience />
+      <AvailabilityMap />
       <Contact />
     </>
   );

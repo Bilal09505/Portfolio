@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
-    "build": "node scripts/prepare-assets.mjs && node scripts/social-images.mjs && next build --webpack",
+    "build": "node scripts/prepare-assets.mjs && node scripts/design-assets.mjs && node scripts/social-images.mjs && next build --webpack",
     "postbuild": "node scripts/postbuild.mjs",
     "typecheck": "tsc --noEmit",
     "media": "node scripts/media.mjs",

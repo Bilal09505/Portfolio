@@ -7,9 +7,9 @@ import { sendContact } from "@/lib/email";
 export function Contact() {
   const [copied, setCopied] = useState(false),
     [service, setService] = useState("Full stack app"),
-    [status, setStatus] = useState<
-      "idle" | "sending" | "success" | "error"
-    >("idle");
+    [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
+      "idle",
+    );
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(site.email);

@@ -93,4 +93,14 @@ The current gallery displays the supplied cover. Multiple-image carousels and vi
 
 ## Intentionally waiting for evidence/media
 
-Client-country globe arcs, impact number counters, portrait cutout, screenshot carousels, floating phone previews and a playable project video require your real content. The globe currently shows your home location, with decorative rotation and drag. No client relationships or delivery results are implied.
+Impact number counters, portrait cutout, screenshot carousels, floating phone previews and a playable project video require your real content. At your request the globe and map show **Pakistan, United Kingdom and UAE as remote availability**, not client history. The country selection is stored in `src/data/locations.ts`.
+
+## Public image assets
+
+- `public/images/world-map.svg`: dotted geographic map generated from world-atlas land geometry.
+- `public/images/flags/`: Pakistan (`pk.svg`), United Kingdom (`gb.svg`), UAE (`ae.svg`).
+- `public/images/tech/`: individual Simple Icons brand SVGs used by the draggable depth-aware logo sphere.
+- `public/images/projects/api-documentation.png` and `.webp`: your existing real screenshot, now also organized under the public images directory.
+- `public/media/`: optimized screenshot variants, globe coordinates and project share images.
+
+Run `node scripts/design-assets.mjs` after asset preparation to regenerate the map, flags and logos. This also runs automatically during builds. No portraits or project screenshots have been copied from the design reference website.

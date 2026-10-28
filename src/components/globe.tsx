@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { asset } from "@/data/site";
+import { locations } from "@/data/locations";
 import * as THREE from "three";
 export default function Globe() {
   const ref = useRef<HTMLDivElement>(null);
+  const labels = useRef<(HTMLAnchorElement | null)[]>([]);
   const [ready, setReady] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -21,42 +23,63 @@ export default function Globe() {
     el.appendChild(renderer.domElement);
     const group = new THREE.Group();
     scene.add(group);
-    group.rotation.y = -1.1;
-    group.rotation.z = -0.14;
+    group.rotation.y = -0.85;
+    group.rotation.x = 0.18;
     const core = new THREE.Mesh(
       new THREE.SphereGeometry(0.983, 48, 48),
       new THREE.MeshBasicMaterial({
         color: "#ece9f2",
-        transparent: true,
-        opacity: 0.85,
+        transparent: false,
       }),
     );
     group.add(core);
-    const grid = new THREE.Mesh(
-      new THREE.SphereGeometry(1, 32, 18),
-      new THREE.MeshBasicMaterial({
-        color: "#b8b0cd",
-        wireframe: true,
-        transparent: true,
-        opacity: 0.12,
-      }),
-    );
-    group.add(grid);
     const position = (lat: number, lon: number, r = 1.012) => {
       const p = (lat * Math.PI) / 180,
         t = (lon * Math.PI) / 180;
       return new THREE.Vector3(
-        r * Math.cos(p) * Math.cos(t),
-        r * Math.sin(p),
         r * Math.cos(p) * Math.sin(t),
+        r * Math.sin(p),
+        r * Math.cos(p) * Math.cos(t),
       );
     };
-    const pin = new THREE.Mesh(
-      new THREE.SphereGeometry(0.025, 16, 16),
-      new THREE.MeshBasicMaterial({ color: "#8b5cf6" }),
-    );
-    pin.position.copy(position(32.57, 74.08, 1.025));
-    group.add(pin);
+    const pins = locations.map((location) => {
+      const pin = new THREE.Mesh(
+        new THREE.SphereGeometry(0.018, 16, 16),
+        new THREE.MeshBasicMaterial({ color: "#8064ae" }),
+      );
+      pin.position.copy(position(location.lat, location.lon, 1.025));
+      group.add(pin);
+      return pin;
+    });
+    // Great-circle-style arcs express remote availability, not client history.
+    const travelingDots: { curve: THREE.CatmullRomCurve3; mesh: THREE.Mesh }[] =
+      [];
+    locations.slice(1).forEach((destination, index) => {
+      const start = position(locations[0].lat, locations[0].lon),
+        end = position(destination.lat, destination.lon);
+      const midpoint = start
+        .clone()
+        .add(end)
+        .normalize()
+        .multiplyScalar(index === 0 ? 1.25 : 1.12);
+      const curve = new THREE.CatmullRomCurve3([start, midpoint, end]);
+      group.add(
+        new THREE.Line(
+          new THREE.BufferGeometry().setFromPoints(curve.getPoints(60)),
+          new THREE.LineBasicMaterial({
+            color: index === 0 ? "#ab80cd" : "#75b8d9",
+            transparent: true,
+            opacity: 0.85,
+          }),
+        ),
+      );
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(0.012, 12, 12),
+        new THREE.MeshBasicMaterial({ color: "#c494e1" }),
+      );
+      group.add(mesh);
+      travelingDots.push({ curve, mesh });
+    });
     let disposed = false;
     const abort = new AbortController();
     fetch(asset("/media/globe.json"), { signal: abort.signal })
@@ -117,13 +140,31 @@ export default function Globe() {
       visible = entry.isIntersecting;
     });
     io.observe(el);
-    let last = 0;
+    let offset = 0;
     const render = (time: number) => {
       frame = requestAnimationFrame(render);
       if (!visible || document.hidden) return;
-      if (!media.matches && !dragging)
-        group.rotation.y += Math.min(time - last, 50) * 0.000035;
-      last = time;
+      if (dragging) offset = group.rotation.y + 0.85;
+      else if (!media.matches)
+        group.rotation.y = -0.85 + offset + Math.sin(time * 0.00015) * 0.04;
+      travelingDots.forEach(({ curve, mesh }, i) =>
+        mesh.position.copy(
+          curve.getPoint(media.matches ? 0.5 : (time * 0.00014 + i * 0.3) % 1),
+        ),
+      );
+      group.updateMatrixWorld(true);
+      pins.forEach((pin, i) => {
+        const label = labels.current[i];
+        if (!label) return;
+        const world = pin.getWorldPosition(new THREE.Vector3());
+        const facing = world.z > 0.1;
+        const screen = world.clone().project(camera);
+        label.style.left = `${(screen.x * 0.5 + 0.5) * 100}%`;
+        label.style.top = `${(-screen.y * 0.5 + 0.5) * 100}%`;
+        label.style.opacity = facing ? "1" : "0";
+        label.style.pointerEvents = facing ? "auto" : "none";
+        label.tabIndex = facing ? 0 : -1;
+      });
       renderer.render(scene, camera);
     };
     frame = requestAnimationFrame(render);
@@ -138,7 +179,11 @@ export default function Globe() {
       el.removeEventListener("pointerup", up);
       el.removeEventListener("pointercancel", up);
       scene.traverse((obj) => {
-        if (obj instanceof THREE.Mesh || obj instanceof THREE.Points) {
+        if (
+          obj instanceof THREE.Mesh ||
+          obj instanceof THREE.Points ||
+          obj instanceof THREE.Line
+        ) {
           obj.geometry.dispose();
           const materials = Array.isArray(obj.material)
             ? obj.material
@@ -157,15 +202,38 @@ export default function Globe() {
         ref={ref}
         className="globe-canvas"
         role="img"
-        aria-label="Interactive dotted globe. Bilal is based in Gujrat, Pakistan. Drag to rotate."
+        aria-label="Interactive dotted globe showing Pakistan, the UK and UAE as remote availability locations. Drag to rotate."
       />
       {!ready && <div className="globe-fallback" aria-hidden="true" />}
-      <div className="globe-tag">
-        <span className="live-dot" />
-        Gujrat, Pakistan <span>↗</span>
-      </div>
+      {locations.map((location, i) => (
+        <a
+          key={location.code}
+          ref={(el) => {
+            labels.current[i] = el;
+          }}
+          href="#availability"
+          className={`globe-country globe-country-${location.code}`}
+          aria-label={`${location.name}: ${location.label}`}
+        >
+          <img
+            src={asset(`/images/flags/${location.code}.svg`)}
+            width="18"
+            height="12"
+            alt=""
+          />
+          <span>
+            {location.code === "ae"
+              ? "UAE"
+              : location.code === "gb"
+                ? "United Kingdom"
+                : "Pakistan"}
+            <small>{location.label}</small>
+          </span>
+          <span>↗</span>
+        </a>
+      ))}
       <span className="globe-caption mono">
-        A local perspective. A global mindset.
+        Pakistan · UK · UAE / Remote availability
       </span>
     </div>
   );

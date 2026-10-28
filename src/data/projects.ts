@@ -119,7 +119,7 @@ export const projects: Project[] = [
     problem:
       "Hand-maintained API documentation drifts from implementation. A reusable schema can connect request definitions, nested form fields and the response viewer without rebuilding each interface.",
     stack: ["Angular", "TypeScript"],
-    image: "/media/api-doc-1280.webp",
+    image: "/images/projects/api-documentation.webp",
     features: [
       {
         title: "Dynamic forms",

@@ -22,6 +22,7 @@ const links = [
   ["Work", "projects"],
   ["About", "about"],
   ["Stack", "stack"],
+  ["Map", "availability"],
   ["Experience", "experience"],
 ];
 export function Clock() {

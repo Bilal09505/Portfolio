@@ -25,7 +25,7 @@ Then open `http://127.0.0.1:3000/Portfolio/`. Omit the base path for a custom do
 
 ## Contact
 
-The form retains service `service_syronxp`, template `template_tilc503` and public key `8WechvJQ6H6bEuOAx`. It sends the same `name`, `email`, `subject`, `message` fields through EmailJS's API. Service chips populate `subject`. It includes validation, a honeypot, loading state, success only after a successful API response, and an email fallback on error.
+The form retains service `service_syronxp`, template `template_tilc503` and public key `8WechvJQ6H6bEuOAx` in `src/lib/email.ts`. It sends the same `name`, `email`, `subject`, `message` fields through EmailJS's API. Service chips populate `subject`. It includes validation, a honeypot, a 15-second timeout, loading state, success only after a successful API response, and an email fallback on error. `node --test tests/contact.test.mjs` checks the request contract and failures with a mocked fetch; no mail is sent.
 
 The EmailJS account must still have its mail service enabled and allow your Pages origin. Public keys are expected in client-side EmailJS integrations; never add private keys. Actual email delivery was not tested by sending a message during implementation.
 
