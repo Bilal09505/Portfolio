@@ -1,0 +1,40 @@
+{
+  "name": "bilal-hassan-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "node scripts/prepare-assets.mjs && node scripts/social-images.mjs && next build --webpack",
+    "postbuild": "node scripts/postbuild.mjs",
+    "typecheck": "tsc --noEmit",
+    "media": "node scripts/media.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4",
+    "cmdk": "latest",
+    "geist": "latest",
+    "gsap": "latest",
+    "lenis": "latest",
+    "lucide-react": "latest",
+    "motion": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "simple-icons": "latest",
+    "tailwindcss": "^4",
+    "three": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/three": "latest",
+    "d3-geo": "latest",
+    "prettier": "^3.9.10",
+    "sharp": "latest",
+    "topojson-client": "latest",
+    "typescript": "latest",
+    "world-atlas": "latest"
+  }
+}
