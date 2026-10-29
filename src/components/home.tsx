@@ -116,7 +116,7 @@ function Hero() {
     <section className="hero container" id="home">
       <div className="hero-copy">
         <div className="name-chip">
-          <span className="tiny-monogram">BH</span>
+          <img className="tiny-monogram hero-avatar" src={asset("/own/own.jpg")} alt="" width={24} height={24} />
           <span>Hey, I’m Bilal</span>
           <span className="chip-divider" />
           <span className="live-dot" />
@@ -415,10 +415,14 @@ function About() {
         </span>
         <div className="about-grid">
           <motion.div className="portrait-card" whileHover={{ rotate: 1.5 }}>
-            <span className="portrait-word">BILAL</span>
-            <div className="portrait-monogram">
-              bh<span>✳</span>
-            </div>
+            <img
+              className="portrait-photo"
+              src={asset("/own/1675662621735.jpeg")}
+              alt="Portrait of Bilal Hassan"
+              width={592}
+              height={592}
+              loading="lazy"
+            />
             <div className="floating-brand angular">
               <Brand name="Angular" />
             </div>

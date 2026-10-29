@@ -27,17 +27,24 @@ export function ProjectVisual({
       className={`project-visual ${large ? "large" : ""}`}
       style={{ "--tint": project.tint } as React.CSSProperties}
     >
-      {project.image ? (
+      {project.image && project.imagePresentation === "mockup" ? (
+        <img
+          className="project-mockup"
+          src={asset(project.image)}
+          alt={project.imageAlt || `${project.title} interface`}
+          loading="lazy"
+        />
+      ) : project.image ? (
         <div className="browser-frame">
           <div className="browser-top">
             <i />
             <i />
             <i />
-            <span>API Documentation Portal</span>
+            <span>{project.title}</span>
           </div>
           <img
             src={asset(project.image)}
-            alt="API Documentation Portal showing schema-generated request fields and API documentation"
+            alt={project.imageAlt || `${project.title} showing schema-generated request fields and API documentation`}
             loading="lazy"
             width={1280}
             height={720}

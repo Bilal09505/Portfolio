@@ -143,7 +143,11 @@ export default async function CasePage({
             {p.image && (
               <section id="gallery">
                 <h2>A closer look.</h2>
-                <Gallery image={p.image} title={p.title} />
+                <div className="project-gallery">
+                  {(p.gallery || [{ image: p.image, title: p.title }]).map((shot) => (
+                    <Gallery key={shot.image} image={shot.image} title={shot.title} />
+                  ))}
+                </div>
               </section>
             )}
           </div>

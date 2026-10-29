@@ -45,7 +45,7 @@ export function Gallery({ image, title }: { image: string; title: string }) {
         <img src={asset(image)} alt={`${title} interface`} loading="lazy" />
         <span>
           <Maximize2 size={13} style={{ display: "inline", marginRight: 7 }} />
-          Open screenshot
+          {title} · Open screenshot
         </span>
       </button>
       <dialog className="lightbox" ref={ref}>

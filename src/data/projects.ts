@@ -15,11 +15,23 @@ export type Project = {
   notes: string[];
   links: { label: string; url: string }[];
   image?: string;
+  imageAlt?: string;
+  imagePresentation?: "mockup";
+  gallery?: { image: string; title: string }[];
   featured?: boolean;
 };
 export const projects: Project[] = [
   {
     slug: "cambridge-school",
+    image: "/school-finance/00-hero-laptop-and-phone.png",
+    imageAlt: "Cambridge School finance dashboard on laptop and mobile",
+    imagePresentation: "mockup",
+    gallery: [
+      { image: "/school-finance/01-laptop-dashboard.png", title: "School finance dashboard on desktop" },
+      { image: "/school-finance/02-laptop-student-profile.png", title: "Student profile on desktop" },
+      { image: "/school-finance/03-phone-dashboard.png", title: "School finance dashboard on mobile" },
+      { image: "/school-finance/04-phone-student-profile.png", title: "Student profile on mobile" },
+    ],
     title: "Cambridge School",
     category: "School finance & administration",
     status: "In progress",
@@ -63,6 +75,16 @@ export const projects: Project[] = [
   },
   {
     slug: "hafiz-auto",
+    image: "/car-parts/00-hero-laptop-and-phone.png",
+    imageAlt: "Hafiz Auto inventory workspace on laptop and mobile",
+    imagePresentation: "mockup",
+    gallery: [
+      { image: "/car-parts/01-laptop-dashboard.png", title: "Inventory dashboard on desktop" },
+      { image: "/car-parts/02-laptop-products.png", title: "Car parts product inventory" },
+      { image: "/car-parts/03-laptop-sales.png", title: "Sales workspace on desktop" },
+      { image: "/car-parts/04-laptop-reports.png", title: "Business reports on desktop" },
+      { image: "/car-parts/05-phone-reports.png", title: "Business reports on mobile" },
+    ],
     title: "Hafiz Auto",
     category: "Car parts inventory",
     status: "In progress",
